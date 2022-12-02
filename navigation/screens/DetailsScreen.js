@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, ScrollView, View } from 'react-native';
 import { Pedometer } from 'expo-sensors';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import Animated from 'react-native-reanimated';
@@ -32,11 +32,13 @@ export default function App() {
     <View style={styles.container}>
       <Text>{}</Text>
 
+
+
       <View>
         <CircularProgress
           value ={stepCount}
           maxValue ={5000}
-          radius = {100}
+          radius = {150}
           activeStrokeColor = {'dodgerblue'}
           inActiveStrokeColor ={'gray'}
           inActiveStrokeOpacity = {0.5}
@@ -55,10 +57,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
-    alignSelf: 'flex-end',
-    marginTop: -5,
-    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   },
 });
 
