@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack' 
 
 // Screens
 import HomeScreen from './screens/HomeScreen';
@@ -10,21 +10,26 @@ import DetailsScreen from './screens/DetailsScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import WorkoutScreen from './screens/WorkoutScreen';
 import FitScreen from './screens/FitScreen';
+import Rest from './screens/Rest';
 
+
+const homeName = "Home";
+const detailsName = "Activity";
+const settingsName = "Profile";
+const workoutName = "Workout";
+const fitName = "Fit";
+const restName = "Rest";
 
 
 const HomeStack = createStackNavigator();
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
     <HomeStack.Screen name = {homeName} component = {HomeScreen} options = {{ headerShown: false }}/>
-    <HomeStack.Screen name = {"Workout"} component = {WorkoutScreen} options = {{headerShown: false}}/>
-    <HomeStack.Screen name = {"Fit"} component = {FitScreen} options = {{headerShown: false}}/>
+    <HomeStack.Screen name = {workoutName} component = {WorkoutScreen} options = {{headerShown: false}}/>
+    <HomeStack.Screen name = {fitName} component = {FitScreen} options = {{headerShown: false}}/>
+    <HomeStack.Screen name = {restName} component = {Rest} options = {{headerShown: false}}/>
   </HomeStack.Navigator>
 )
-
-const homeName = "Home";
-const detailsName = "Activity";
-const settingsName = "Profile";
 
 
 
@@ -49,7 +54,7 @@ function MainContainer() {
               iconName = focused ? 'list' : 'list-outline';
 
             } else if (rn === settingsName) {
-              iconName = focused ? 'settings' : 'settings-outline';
+              iconName = focused ? 'person' : 'person-outline';
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
